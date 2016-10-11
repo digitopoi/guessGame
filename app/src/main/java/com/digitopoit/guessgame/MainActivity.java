@@ -13,6 +13,12 @@ public class MainActivity extends AppCompatActivity {
 
     int randomInt;
 
+    public void makeToast(String string) {
+
+        Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
+
+    }
+
     public void clickFunction(View view) {
 
         EditText userGuess = (EditText) findViewById(R.id.userGuess);
@@ -20,22 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         if (intUserGuess == randomInt) {
 
-            Toast.makeText(MainActivity.this, "Correct! Try to guess a new number!", Toast.LENGTH_SHORT).show();
-
+            makeToast("Correct! Try to guess a new number!");
             Random rand = new Random();
             randomInt = rand.nextInt(20) + 1;
 
-
         } else if (intUserGuess < randomInt) {
 
-            Toast.makeText(MainActivity.this, "Higher!", Toast.LENGTH_SHORT).show();
+            makeToast("Higher!");
 
         } else if (intUserGuess > randomInt) {
 
-            Toast.makeText(MainActivity.this, "Lower!", Toast.LENGTH_SHORT).show();
+            makeToast("Lower!");
         } else {
 
-            Toast.makeText(MainActivity.this, "Huh?", Toast.LENGTH_SHORT).show();
+            makeToast("Huh?");
 
         }
 
